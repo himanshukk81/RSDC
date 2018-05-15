@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar hideBackButton="false">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{AssesmentType}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list *ngFor="let question of questions;let i=index" style="margin-top:20px" text-center>
+    <span *ngIf="i==count && (!submitted || typeCounter==3)"> {{question.id}} . {{question.question}}</span>
+    
+   <ion-list radio-group [(ngModel)]="selectedValue" *ngFor="let option of question.options;let j=index">
+      <ion-item *ngIf="i==count && (!submitted || typeCounter==3)">
+        <ion-label>{{option.option}}</ion-label>
+        <ion-radio value="{{option.id}}" > </ion-radio>
+      </ion-item>
+   </ion-list>
+  </ion-list> 
+
+  <div *ngIf="!submitted || typeCounter==3" text-center>
+   <button ion-button outline (click)="previous()"  *ngIf="questions.length-1!=count && count>0">Previous</button>
+   <button ion-button outline (click)="next()"  *ngIf="questions.length-1!=count">Next</button>
+   <button ion-button outline (click)="submit()"  *ngIf="questions.length-1==count">{{buttonType}}</button>
+  </div>  
+  <ion-list text-center> 
+   <p style="font-size:14px" *ngIf="(typeCounter==1 || typeCounter==2) && count==questions.length-1 && submitted">Congratulations, You have successfully Completed your pre Assesment</p> 
+   <p style="font-size:20px" *ngIf="(typeCounter==1 || typeCounter==2) && count==questions.length-1 && submitted">Your Score is 90%</p>
+   
+    <!-- <span style="text-align:center">Suggested Trainings</span> -->
+    
+    <p *ngIf="typeCounter==1 && count==questions.length-1">Please Provide your Valuable Feedback On Pre Assesment</p>
+    
+    <div *ngIf="typeCounter==1 && count==questions.length-1">
+      <ion-textarea [(ngModel)]="comment" name="comment" placeholder="Put any comment..."></ion-textarea>
+      <button ion-button outline (click)="selfAssesments()">Submit</button>
+    </div>
+    <ion-item *ngIf="typeCounter==1 && count==questions.length-1" text-center>
+      <button ion-button outline (click)="jobs()">Jobs</button>
+      <button ion-button outline (click)="training()">Training</button>
+    </ion-item>
+  </ion-list>      
+
+  <div text-center *ngIf="loader">
+          <ion-spinner name="circles" ></ion-spinner>
+  </div>  
+</ion-content>

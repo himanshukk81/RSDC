@@ -1,7 +1,10 @@
-<ion-menu [content]="content">
+<ion-menu [content]="content" side="left" id="menu1">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Menu</ion-title>
+      <ion-title>{{user.name}}
+       <h4>{{user.type}}</h4>   
+      </ion-title>
+      
     </ion-toolbar>
   </ion-header>
 

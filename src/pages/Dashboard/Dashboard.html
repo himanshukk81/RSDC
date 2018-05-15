@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-navbar hideBackButton="true" drag-content="false">
+    <button ion-button menuToggle >
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Dashboard</ion-title>
+  </ion-navbar>
+
+  <!-- <ion-item>
+        <ion-label>Select image</ion-label>
+        <ion-select [(ngModel)]="image" (ngModelChange)="selectImage(image)">
+          <ion-option value="1">1</ion-option>
+          <ion-option value="2">2</ion-option>
+          <ion-option value="3">3</ion-option>
+          <ion-option value="4">4</ion-option>
+          <ion-option value="5">5</ion-option>
+          <ion-option value="6">6</ion-option>
+          <ion-option value="7">7</ion-option>
+          
+          
+        </ion-select>
+
+        
+  </ion-item>       -->
+</ion-header>
+
+<ion-content>
+
+  <div [formGroup]="myGroup"> 
+    <ion-input formControlName="placeAutofill"  [(ngModel)]="user.address" id="googlePlaces" placeholder="Search Box" required></ion-input>
+  </div> 
+  <div #map id="map"></div>
+  <ion-list>
+    <!-- <ion-item> 
+      <ion-input type="text" [(ngModel)]="user.location" placeholder="Enter Your Location"></ion-input>
+
+      
+       
+    </ion-item> -->
+    <ion-slides #slider pager (ionDrag)="onIonDrag($event)">
+
+        <ion-slide padding text-wrap *ngFor="let new of news">
+             <p>{{new.name}}</p> 
+        </ion-slide>
+
+        
+
+    </ion-slides>   
+
+     
+
+
+    <ion-item *ngIf="userId<=3" text-center>   
+      
+      <!-- <h2 style="text-align:center">News</h2>
+      <p>It is a Long Established Fact that a reader will be distracted by readable content  of a page  when looking at its layout</p>
+ -->
+      <div style="margin-bottom:40px;"></div>
+      <p> Take Pre Assesment To View trainings and jobs</p>
+      <div style="margin-bottom:20px;"></div>
+      <button ion-button outline (click)="takeTest()">Take Test</button>
+    </ion-item> 
+
+
+    <ion-item *ngIf="userId==5" text-center>  
+      
+      <!-- <h2 style="text-align:center">News</h2>
+      <p>It is a Long Established Fact that a reader will be distracted by readable content  of a page  when looking at its layout</p>
+ -->
+     
+      <p>You can Check RSDC Certified Trainers/Assessors</p>
+     
+    </ion-item> 
+
+    <ion-list *ngIf="userId==6" text-center>
+      <h2>Industries Visited</h2>
+      <ion-item   *ngFor="let new of news">  
+        
+        
+        
+            <h2>Name Of Industry</h2>
+            <p>It is Established in 1991</p>
+        
+      
+      </ion-item> 
+    </ion-list>      
+
+  </ion-list>
+  
+</ion-content>

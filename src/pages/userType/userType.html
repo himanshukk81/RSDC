@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Select User</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+   <p style="text-align:center">Tell Us Who Are You?</p>
+  <ion-list >
+
+    <!-- <div *ngFor="let userType of userTypes;let i=index">
+      
+      <div class="row" *ngIf="i<=3">
+        <button ion-button [color]="clickButton=='click' ? 'secondary' : 'light'" [outline]="isOutline"  (click)="selectUser(userType)">{{userType.name}}</button>      
+      </div>  
+      <div class="row" *ngIf="i>3">
+        <button ion-button [color]="clickButton=='click' ? 'secondary' : 'light'" [outline]="isOutline"  (click)="selectUser(userType)">{{userType.name}}</button>      
+       </div>  
+    </div> -->
+      
+    <ion-row responsive-sm *ngFor="let userType of userTypes; let i = index">
+      <ion-col width-50>
+        <button ion-button [color]="userTypes[i].selected ? 'secondary' : 'light'" [outline]="isOutline"  (click)="selectUser(userType,i)">{{userType.name}}</button>
+      </ion-col>
+    </ion-row>
+    <!-- <ion-item>
+      <button ion-button [color]="clickButton=='click' ? 'secondary' : 'light'" [outline]="isOutline" (click)="selectUser(1)">Student(University/College)</button>
+      <button ion-button [color]="clickButton=='click' ? 'secondary' : 'light'" [outline]="isOutline" (click)="selectUser(2)">Student(Supervisors/Professionals)</button>
+      <button ion-button [color]="clickButton=='click' ? 'secondary' : 'light'" [outline]="isOutline" (click)="selectUser(3)">Student(RPL)</button>
+    </ion-item>  
+    <ion-item>
+      <button ion-button [color]="clickButton=='click' ? 'secondary' : 'light'" [outline]="isOutline" (click)="selectUser(4)">Trainer</button>
+      <button ion-button [color]="clickButton=='click' ? 'secondary' : 'light'" [outline]="isOutline" (click)="selectUser(5)">Industry</button>
+      <button ion-button [color]="clickButton=='click' ? 'secondary' : 'light'" [outline]="isOutline" (click)="selectUser(6)">Regional Co-ordinator</button>
+    </ion-item>  
+ -->
+
+  </ion-list>
+
+    <ion-item>
+      <button ion-button icon-right (click)="next()">
+          Next
+      </button>
+    </ion-item>  
+
+ 
+
+
+  
+</ion-content>

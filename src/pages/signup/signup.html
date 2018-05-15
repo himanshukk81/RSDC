@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle [hidden]="false">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Register</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+      <ion-card>
+        <ion-list >
+          <ion-item>
+            <ion-label>Mobile Number</ion-label>
+            <ion-input type="tel" [(ngModel)]="user.mobile_no" style="border:1px"></ion-input>
+          </ion-item> 
+
+          <ion-item>
+            <button ion-button outline (click)="sendOTP()" [disabled]="diabledButton">Send OTP</button> <br/>
+            <!-- <a class="button" (click)="resendOTP()" *ngIf="otp">Resend OTP</a> -->
+          </ion-item>
+
+          <ion-item *ngIf="otp">
+           <ion-input type="text" [(ngModel)]="user.otp" (ngModelChange)="verifyOtp()" placeholder="Enter Otp"></ion-input> 
+           <p style="text-align:center" *ngIf="verify">{{user.otpMessage}}</p>
+          </ion-item> 
+
+          <ion-item *ngIf="verified">
+           <ion-input type="text" [(ngModel)]="user.password"  placeholder="Enter New Password"></ion-input><br/><br/>
+           <ion-input type="text" [(ngModel)]="user.confirmPassword" placeholder="Enter Confirm Password"></ion-input> 
+           <!-- <p style="text-align:center" *ngIf="verify">{{user.otpMessage}}</p> -->
+          </ion-item>     
+
+
+          <ion-item *ngIf="verified">
+           <button ion-button outline (click)="signUp()">SignUp</button> 
+          </ion-item>     
+
+
+
+          <!-- <ion-item *ngIf="otp">
+            Credentials have been sent to your registered mobile number.
+          </ion-item>  -->
+        </ion-list>
+      </ion-card> 
+         <div text-center *ngIf="loader">
+          <ion-spinner name="circles" ></ion-spinner>
+         </div>  
+ 
+</ion-content>

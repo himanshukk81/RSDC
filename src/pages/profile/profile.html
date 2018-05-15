@@ -1,0 +1,49 @@
+<ion-header>
+ <!--  <ion-navbar>
+    
+    
+  </ion-navbar> -->
+ <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Profile Data</ion-title>
+  </ion-navbar>
+  
+</ion-header>
+
+<ion-content padding>
+   
+  <ion-list>
+    <ion-item>
+     <ion-input readonly>{{userType}}</ion-input>
+    </ion-item>  
+
+    <ion-item>
+     <ion-input  placeholder="Aadhar Number" clearInput [(ngModel)]="user.aadharNo"></ion-input>
+    </ion-item>  
+
+    <ion-item>
+     <ion-input  placeholder="First Name" clearInput [(ngModel)]="user.firstName"></ion-input>
+     <ion-input  placeholder="Last Name" clearInput [(ngModel)]="user.lastName"></ion-input>
+    </ion-item>  
+    <ion-item>
+     <ion-input  placeholder="Email Address" clearInput [(ngModel)]="user.email"></ion-input>
+    </ion-item>  
+
+    <ion-item>
+     <ion-input  placeholder="city" clearInput [(ngModel)]="user.city"></ion-input>
+     <ion-input  placeholder="state" clearInput [(ngModel)]="user.state"></ion-input>
+    </ion-item> 
+
+    <ion-item text-center>
+     <button ion-button outline (click)="submit()">Submit</button> 
+    </ion-item>      
+
+  </ion-list>
+
+  <div text-center *ngIf="loader">
+          <ion-spinner name="circles" ></ion-spinner>
+  </div>  
+  
+</ion-content>

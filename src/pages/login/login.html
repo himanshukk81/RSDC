@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list text-center>
+     <ion-item >
+      <ion-label color="primary" stacked>Mobile No.</ion-label>
+      <ion-input clearInput [(ngModel)]="user.mobileNo"></ion-input>
+     </ion-item> 
+
+     <ion-item>
+      <ion-label color="primary" stacked>Password</ion-label>
+      <ion-input clearInput [(ngModel)]="user.password"></ion-input>
+     </ion-item> 
+
+     <ion-item>
+      <button ion-button outline (click)="login()">Login</button> 
+     </ion-item>
+
+     <ion-item>
+      <a class="button" (click)="forgotPassword()">Forgot Password ?</a>
+      <a class="button" (click)="signUp()">Sign Up</a>
+     </ion-item>
+  </ion-list> 
+
+   <div text-center *ngIf="loader">
+          <ion-spinner name="circles" ></ion-spinner>
+  </div>  
+</ion-content>

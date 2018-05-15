@@ -1,0 +1,49 @@
+<!--
+  Generated template for the ContactTpPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>contact-tp</ion-title>
+  </ion-navbar> 
+
+</ion-header>
+
+
+<ion-content padding>
+
+   <ion-list  text-center>
+    
+      <ion-item>
+        <ion-label>Select Training</ion-label>
+        <ion-select [(ngModel)]="obj.training">
+          <ion-option value="java">Java</ion-option>
+          <ion-option value=".Net">.Net</ion-option>
+          <ion-option value="Angular">Angular</ion-option>
+          <ion-option value="Php">Php</ion-option>
+          <ion-option value="Sql">SQL</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Select Training Provider</ion-label>
+        <ion-select [(ngModel)]="obj.trainingProvider">
+          <ion-option value="Himanshu">Himanshu</ion-option>
+          <ion-option value="Shahid">Shahid</ion-option>
+          <ion-option value="Rahul">Rahul</ion-option>
+          <ion-option value="Yash">Yash</ion-option>
+          
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-textarea [(ngModel)]="obj.comment" name="comment" placeholder="Enter New Training Requirements"></ion-textarea>
+      </ion-item>  
+      <button ion-button outline (click)="sendToTp()">Submit</button>
+    </ion-list> 
+</ion-content>

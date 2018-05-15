@@ -1,0 +1,33 @@
+<!--
+  Generated template for the JobResultPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>All Training</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+  <ion-list>
+
+     
+
+  <ion-item *ngFor="let training of trainings;let i=index">
+    <h2>Personal Ability</h2>
+    <h3>21/07/2017-23/08/2017</h3>
+    <h3>This Training is enable Candidate Internal Skill</h3>
+    <div class="row">
+      <div class="col"> 
+        <a (click)="jobTrainingDetail(training)">Join Training</a>
+      </div>  
+    </div>  
+  </ion-item>
+</ion-list>
+</ion-content>

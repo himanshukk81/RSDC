@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar hideBackButton="false">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Jobs</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+   <ion-toolbar no-border-top>
+        <ion-segment [(ngModel)]="segment" (click)="getJobsRole(segment)">
+            <ion-segment-button value="1">Jobs By Skills</ion-segment-button>
+            <ion-segment-button value="2">Jobs By Location</ion-segment-button>
+            <ion-segment-button value="3">Jobs By Company</ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+ 
+<ion-list>
+  <ion-item *ngFor="let jobRole of jobsRole;let i=index">
+    <a (click)="getjobRole()">{{jobRole.name}}</a>
+  </ion-item>
+</ion-list>
+
+<div class="row" style="margin-left:40%">
+   <b>Latest Jobs</b>
+</div>  
+
+<ion-list>
+  <ion-item *ngFor="let latestJob of latestJobs;let i=index">
+    <h2>{{latestJob.title}}</h2>
+   
+    <p>{{latestJob.descriptions}}</p>
+  </ion-item>
+</ion-list>
+</ion-content>

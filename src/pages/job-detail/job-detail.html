@@ -1,0 +1,32 @@
+<!--
+  Generated template for the JobDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Job Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+      <ion-card>
+        <ion-card-header>
+          {{jobDetail.title}}
+        </ion-card-header>
+        <ion-card-content>
+          <h2>Haryana</h2>
+          <h3>Posted On 8 Sep 2017</h3><br/>
+          <h2>Job Type:Permanent</h2>
+          <h3>Salary:4.64 lac</h3>
+          <h3>contact:128383838 </h3>
+          <p>{{jobDetail.descriptions}}</p>
+
+           <button ion-button outline  (click)="apply()">Apply For this Job</button>
+        </ion-card-content>
+      </ion-card>
+</ion-content>
